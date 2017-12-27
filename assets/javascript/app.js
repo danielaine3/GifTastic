@@ -10,11 +10,22 @@ function renderButtons() {
 
 		var searchBtn = $('<button>');
 
+		//Adding a class of dearch to our button
+		searchBtn.addClass("search");
+		searchBtn.click(displaySearchInfo);
+		//Adding a data-attribute
+		searchBtn.attr("data-name", searches[i]);
+
 		searchBtn.text(searches[i]);
 
 		$("#searches-view").append(searchBtn);
 	};
+
+
+
 };
+
+
 
 //This function handles events wehre the add search button is clicked
 $("#add-search").on("click", function(event){
@@ -36,3 +47,39 @@ $("#add-search").on("click", function(event){
 
 //Calling the renderButtons function to display the inital list of searches
 renderButtons();
+
+
+
+function displaySearchInfo(){
+
+	var search = $(this).attr("data-name");	
+	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
+
+	$.ajax({
+		url:queryURL,
+		method: 'GET'
+	}).done(function(response) {
+ 		console.log(response.data[0]);
+
+
+
+
+	});
+
+};
+
+
+	// //creating a div to hold the search
+	// var searchDiv = $("<div class='search'>");
+
+	// //Storing the rating data
+	// var rating =  response.rating;
+
+	// //Creating an element to have the rating displyed
+	// var pOne = $("<p>").text("Rating: " + rating);
+
+	// //Display the rating
+	// searchDiv.append(pOne);
+
+	// //Retrieving the URL for the gif
+	// var gifURL = response;
