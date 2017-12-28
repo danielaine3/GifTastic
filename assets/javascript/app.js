@@ -20,12 +20,7 @@ function renderButtons() {
 
 		$("#searches-view").append(searchBtn);
 	};
-
-
-
 };
-
-
 
 //This function handles events wehre the add search button is clicked
 $("#add-search").on("click", function(event){
@@ -48,8 +43,6 @@ $("#add-search").on("click", function(event){
 //Calling the renderButtons function to display the inital list of searches
 renderButtons();
 
-
-
 function displaySearchInfo(){
 
 	var search = $(this).attr("data-name");	
@@ -59,27 +52,50 @@ function displaySearchInfo(){
 		url:queryURL,
 		method: 'GET'
 	}).done(function(response) {
- 		console.log(response.data[0]);
+ 		console.log(response.data[0].images.downsized.url);
+
+ 		var results = response.data;
+
+ 		for (var i = 0; i < results.length; i++) {
+
+		//creating a div to hold the search
+		var searchDiv = $("<div class='search'>");
+
+		//Storing the rating data
+		var rating =  response.data[i].rating;
+
+		//Creating an element to have the rating displyed
+		var pOne = $("<p>").text("Rating: " + rating);
+
+ 		//Display the rating
+		searchDiv.append(pOne);
+
+		// //Retrieving the URL for the gif
+		var gifURL = response.data[i].images.downsized.url;
+
+		var gif = $("<img>").attr("src",gifURL);
+
+		//Appending the gif
+		searchDiv.append(gif);
+
+		//Appending the searchDiv to the searches-view div
+		$("#searches-view").append(searchDiv);
+	}
 
 
 
 
-	});
+});
 
 };
 
 
-	// //creating a div to hold the search
-	// var searchDiv = $("<div class='search'>");
+	
 
-	// //Storing the rating data
-	// var rating =  response.rating;
 
-	// //Creating an element to have the rating displyed
-	// var pOne = $("<p>").text("Rating: " + rating);
 
-	// //Display the rating
-	// searchDiv.append(pOne);
 
-	// //Retrieving the URL for the gif
-	// var gifURL = response;
+
+
+
+
