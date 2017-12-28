@@ -1,5 +1,5 @@
 //Initial array of searches
-var searches = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+var searches = ["Friends", "Roseanne", "Gilmore Girls", "My So Called Life"];
 
 function renderButtons() {
 	//Delete the content inside the search-view div before adding new movies
@@ -13,6 +13,7 @@ function renderButtons() {
 		//Adding a class of dearch to our button
 		searchBtn.addClass("search");
 		searchBtn.click(displaySearchInfo);
+
 		//Adding a data-attribute
 		searchBtn.attr("data-name", searches[i]);
 
@@ -52,7 +53,7 @@ function displaySearchInfo(){
 		url:queryURL,
 		method: 'GET'
 	}).done(function(response) {
- 		console.log(response.data[0].images.downsized.url);
+ 		console.log(response.data[0].images);
 
  		var results = response.data;
 
@@ -71,9 +72,11 @@ function displaySearchInfo(){
 		searchDiv.append(pOne);
 
 		// //Retrieving the URL for the gif
-		var gifURL = response.data[i].images.downsized.url;
+		var gifURL = response.data[i].images.original_still.url;
+		var animateURL= response.data[i].images.original.url;
+		var stillURL = response.data[i].images.original_still.url;
 
-		var gif = $("<img>").attr("src",gifURL);
+		var gif = $("<img>").attr("src", gifURL).attr("data-animate", animateURL).attr("data-still", stillURL).attr("data-state", "still");
 
 		//Appending the gif
 		searchDiv.append(gif);
@@ -82,8 +85,26 @@ function displaySearchInfo(){
 		$("#searches-view").append(searchDiv);
 	}
 
+function animateGif() {
+
+	$("img").on("click", function(){
+
+		var state = $(this).attr("data-state");
+
+		if (state === "still"){
+			$(this).attr("src", $(this).attr("data-animate"));
+			$(this).attr("data-state", "animate");
+
+		} else {
+
+			$(this).attr("src", $(this).attr("data-still"));
+			$(this).attr("data-state", "still");
+		};
+	});
+};
 
 
+animateGif();
 
 });
 
