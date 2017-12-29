@@ -1,9 +1,12 @@
 //Initial array of topics
 var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 
-function renderButtons() {
-	//Delete the content inside the topics-view div before adding new gifs
-	$("#topics-view").empty();
+function createButtons() {
+
+	//Delete the content inside the buttons div before adding new buttons
+	$(".topic").empty();
+
+	$(".gifs").empty();
 
 	//Loop through the array of topics, then generate buttons for each topic in the array
 	for (var i = 0; i < topics.length; i++){
@@ -19,7 +22,7 @@ function renderButtons() {
 
 		topicBtn.text(topics[i]);
 
-		$("#topics-view").append(topicBtn);
+		$(".buttons").append(topicBtn);
 
 	};
 };
@@ -29,7 +32,7 @@ $("#add-topic").on("click", function(event){
 
 	//event.preventDefault() prevents submit button from trying to send a form.
 	//Using a submitbutton instead of a regular button allows the user to hit
-	//"Enter" instead of clicking the button if desired
+	//"Enter" instead of clicking the button if desireds
 	event.preventDefault();
 
 	//This grabs the text the user types in the input field
@@ -38,12 +41,13 @@ $("#add-topic").on("click", function(event){
 	//This adds the new topic to the topics array
 	topics.push(newTopic);
 
-	//The renderButtons fuction is called, rendering the list of topic buttons
-	renderButtons();
+	//The createButtons fuction is called, creatinging the list of topic buttons
+	createButtons();
+
 });
 
-//Calling the renderButtons function to display the inital list of topics
-renderButtons();
+//Calling the createButtons function to display the inital list of topics
+createButtons();
 
 function displayTopicInfo(){
 
@@ -57,8 +61,10 @@ function displayTopicInfo(){
 
  		var results = response.data;
 
- 		for (var i = 0; i < results.length; i++) {
+ 		$(".gifs").empty();
 
+ 		for (var i = 0; i < results.length; i++) {
+			
 			//creating a div to hold the topic
 			var topicDiv = $("<div class='topic'>");
 
@@ -73,14 +79,17 @@ function displayTopicInfo(){
 			var animateURL= response.data[i].images.original.url;
 			var stillURL = response.data[i].images.original_still.url;
 
-			var gif = $("<img>").attr("src", gifURL).attr("data-animate", animateURL).attr("data-still", stillURL).attr("data-state", "still");
+			var gif = $("<img>").attr("src", gifURL)
+			.attr("data-animate", animateURL)
+			.attr("data-still", stillURL)
+			.attr("data-state", "still");
 
 			//Appending the gif
 			topicDiv.append(gif);
 
-			//Appending the topicDiv and ratingDiv to the topics-view div
-			$("#topics-view").append(topicDiv);
-			$("#topics-view").append(ratingDiv);
+			//Appending the topicDiv and ratingDiv to the gifs div
+			$(".gifs").append(topicDiv);
+			$(".gifs").append(ratingDiv);
 
 		};
 
@@ -107,5 +116,9 @@ function displayTopicInfo(){
 	});
 
 };
+
+
+
+
 
 	

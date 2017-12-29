@@ -28,6 +28,13 @@ h1 {
 
 }
 
+label {
+	font-size:25px;
+	color: #031136;
+	margin-bottom: 10px;
+	
+}
+
 p {
 	font-size:25px;
 	color: #031136;
