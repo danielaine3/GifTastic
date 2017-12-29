@@ -4,7 +4,7 @@ var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 function createButtons() {
 
 	//Delete the content inside the buttons div before adding new buttons
-	$(".topic").empty();
+	$(".buttons").empty();
 
 	$(".gifs").empty();
 
