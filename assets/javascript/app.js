@@ -1,30 +1,30 @@
-//Initial array of searches
-var searches = ["Friends", "Roseanne", "Gilmore Girls", "My So Called Life"];
+//Initial array of topics
+var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 
 function renderButtons() {
-	//Delete the content inside the search-view div before adding new movies
-	$("#searches-view").empty();
+	//Delete the content inside the topics-view div before adding new movies
+	$("#topics-view").empty();
 
-	//Loop through the array of searches, then generate buttons for each search in the array
-	for (var i = 0; i < searches.length; i++){
+	//Loop through the array of topics, then generate buttons for each topic in the array
+	for (var i = 0; i < topics.length; i++){
 
-		var searchBtn = $('<button>');
+		var topicBtn = $('<button>');
 
-		//Adding a class of dearch to our button
-		searchBtn.addClass("search");
-		searchBtn.click(displaySearchInfo);
+		//Adding a class of topic to our button
+		topicBtn.addClass("topic");
+		topicBtn.click(displayTopicInfo);
 
 		//Adding a data-attribute
-		searchBtn.attr("data-name", searches[i]);
+		topicBtn.attr("data-name", topics[i]);
 
-		searchBtn.text(searches[i]);
+		topicBtn.text(topics[i]);
 
-		$("#searches-view").append(searchBtn);
+		$("#topics-view").append(topicBtn);
 	};
 };
 
-//This function handles events wehre the add search button is clicked
-$("#add-search").on("click", function(event){
+//This function handles events wehre the add topic button is clicked
+$("#add-topic").on("click", function(event){
 
 	//event.preventDefault() prevents submit button from trying to send a form.
 	//Using a submitbutton instead of a regular button allows the user to hit
@@ -32,46 +32,42 @@ $("#add-search").on("click", function(event){
 	event.preventDefault();
 
 	//This grabs the text the user types in the input field
-	search = $("#search-input").val().trim();
+	topic = $("#topic-input").val().trim();
 
-	//This adds the new search to the searches array
-	searches.push(search);
+	//This adds the new topic to the topics array
+	topics.push(topic);
 
-	//The renderButtons fuciont is called, rendering the list of search buttons
+	//The renderButtons fuction is called, rendering the list of topic buttons
 	renderButtons();
 });
 
-//Calling the renderButtons function to display the inital list of searches
+//Calling the renderButtons function to display the inital list of topics
 renderButtons();
 
-function displaySearchInfo(){
+function displayTopicInfo(){
 
-	var search = $(this).attr("data-name");	
-	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + search + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
+	var topic = $(this).attr("data-name");	
+	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
 
 	$.ajax({
 		url:queryURL,
 		method: 'GET'
 	}).done(function(response) {
- 		console.log(response.data[0].images);
 
  		var results = response.data;
 
  		for (var i = 0; i < results.length; i++) {
 
-		//creating a div to hold the search
-		var searchDiv = $("<div class='search'>");
+		//creating a div to hold the topic
+		var topicDiv = $("<div class='topic'>");
 
 		//Storing the rating data
 		var rating =  response.data[i].rating;
 
 		//Creating an element to have the rating displyed
-		var pOne = $("<p>").text("Rating: " + rating);
+		var rating = $("<p>").text("Rating: " + rating);
 
- 		//Display the rating
-		searchDiv.append(pOne);
-
-		// //Retrieving the URL for the gif
+		//Retrieving and storing the URLs for the gifs 
 		var gifURL = response.data[i].images.original_still.url;
 		var animateURL= response.data[i].images.original.url;
 		var stillURL = response.data[i].images.original_still.url;
@@ -79,10 +75,15 @@ function displaySearchInfo(){
 		var gif = $("<img>").attr("src", gifURL).attr("data-animate", animateURL).attr("data-still", stillURL).attr("data-state", "still");
 
 		//Appending the gif
-		searchDiv.append(gif);
+		topicDiv.append(gif);
 
-		//Appending the searchDiv to the searches-view div
-		$("#searches-view").append(searchDiv);
+ 		//Display the rating
+		topicDiv.append(rating);
+
+
+
+		//Appending the topicDiv to the topics-view div
+		$("#topics-view").append(topicDiv);
 	}
 
 function animateGif() {
@@ -103,10 +104,10 @@ function animateGif() {
 	});
 };
 
-
 animateGif();
 
 });
+
 
 };
 

@@ -17,7 +17,7 @@
 	    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
 		<!--Link to Google Fonts-->
-	   <!--  <link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">-->
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
 
 	    <!--Link to CSS-->
 	    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -30,17 +30,28 @@
 
 			<h1>Giphy Search</h1>
 
-			<!--Searches will get dumped here-->
-			<div id="searches-view"></div>
 
-			<form id="search-form">
-				<label for="search-input">Add a search!</label>
-				<input type="text" id="search-input">
-				<br>
+			<div class= "topic-form">
 
-				<!--Button triggers new search to be added-->
-				<input id="add-search" type="submit" value="Add a search!">
-			</form>
+				<form id="topic-form">
+					<label for="topic-input">Add a search!</label>
+					<input type="text" id="search-input">
+					<br>
+
+					<!--Button triggers new search to be added-->
+					<input id="add-topic" type="submit" value="Add a search!">
+				</form>
+			</div>
+
+			<div class="buttons">
+
+				<!--Searches will get dumped here-->
+				<div id="topics-view"></div>
+
+			</div>
+
+			<div class="extra"></div>
+			
 
 		</div>
 
