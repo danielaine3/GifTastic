@@ -2,7 +2,7 @@
 var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 
 function renderButtons() {
-	//Delete the content inside the topics-view div before adding new movies
+	//Delete the content inside the topics-view div before adding new gifs
 	$("#topics-view").empty();
 
 	//Loop through the array of topics, then generate buttons for each topic in the array
@@ -20,6 +20,7 @@ function renderButtons() {
 		topicBtn.text(topics[i]);
 
 		$("#topics-view").append(topicBtn);
+
 	};
 };
 
@@ -32,10 +33,10 @@ $("#add-topic").on("click", function(event){
 	event.preventDefault();
 
 	//This grabs the text the user types in the input field
-	topic = $("#topic-input").val().trim();
+	newTopic = $("#topic-input").val().trim();
 
 	//This adds the new topic to the topics array
-	topics.push(topic);
+	topics.push(newTopic);
 
 	//The renderButtons fuction is called, rendering the list of topic buttons
 	renderButtons();
@@ -58,66 +59,53 @@ function displayTopicInfo(){
 
  		for (var i = 0; i < results.length; i++) {
 
-		//creating a div to hold the topic
-		var topicDiv = $("<div class='topic'>");
+			//creating a div to hold the topic
+			var topicDiv = $("<div class='topic'>");
 
-		//Storing the rating data
-		var rating =  response.data[i].rating;
+			//Storing the rating data
+			var rating =  response.data[i].rating;
 
-		//Creating an element to have the rating displyed
-		var rating = $("<p>").text("Rating: " + rating);
+			//Creating an element to have the rating displyed
+			var ratingDiv = $("<p>").text("Rating: " + rating);
 
-		//Retrieving and storing the URLs for the gifs 
-		var gifURL = response.data[i].images.original_still.url;
-		var animateURL= response.data[i].images.original.url;
-		var stillURL = response.data[i].images.original_still.url;
+			//Retrieving and storing the URLs for the gifs 
+			var gifURL = response.data[i].images.original_still.url;
+			var animateURL= response.data[i].images.original.url;
+			var stillURL = response.data[i].images.original_still.url;
 
-		var gif = $("<img>").attr("src", gifURL).attr("data-animate", animateURL).attr("data-still", stillURL).attr("data-state", "still");
+			var gif = $("<img>").attr("src", gifURL).attr("data-animate", animateURL).attr("data-still", stillURL).attr("data-state", "still");
 
-		//Appending the gif
-		topicDiv.append(gif);
+			//Appending the gif
+			topicDiv.append(gif);
 
- 		//Display the rating
-		topicDiv.append(rating);
+			//Appending the topicDiv and ratingDiv to the topics-view div
+			$("#topics-view").append(topicDiv);
+			$("#topics-view").append(ratingDiv);
 
-
-
-		//Appending the topicDiv to the topics-view div
-		$("#topics-view").append(topicDiv);
-	}
-
-function animateGif() {
-
-	$("img").on("click", function(){
-
-		var state = $(this).attr("data-state");
-
-		if (state === "still"){
-			$(this).attr("src", $(this).attr("data-animate"));
-			$(this).attr("data-state", "animate");
-
-		} else {
-
-			$(this).attr("src", $(this).attr("data-still"));
-			$(this).attr("data-state", "still");
 		};
+
+	function animateGif() {
+
+		$("img").on("click", function(){
+
+			var state = $(this).attr("data-state");
+
+			if (state === "still"){
+				$(this).attr("src", $(this).attr("data-animate"));
+				$(this).attr("data-state", "animate");
+
+			} else {
+
+				$(this).attr("src", $(this).attr("data-still"));
+				$(this).attr("data-state", "still");
+			};
+		});
+	};
+
+	animateGif();
+
 	});
-};
-
-animateGif();
-
-});
-
 
 };
-
 
 	
-
-
-
-
-
-
-
-

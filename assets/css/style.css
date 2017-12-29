@@ -5,12 +5,14 @@ body {
 
 .container {
 	width:100%;
+	min-height:600px;
 	margin-bottom: 40px;
 }
 
 h1 {
 	font-size:80px;
-	color:black;
+	background-color: #E29A6F;
+	color:#FFFFFF;
 	position: relative;
 	left:0;
 	top:0;
@@ -26,8 +28,24 @@ h1 {
 
 }
 
+p {
+	font-size:25px;
+	color: #031136;
+	margin-bottom: 10px;
+}
+
+#add-topic {
+	background-color: #031136;
+	color: #FFFFFF;
+	font-size: 20px;
+	padding: 10px;
+	margin-top: 20px;
+	border-radius:15px;
+
+}
+
 button {
-	background-color: #9DB5D6;
+	background-color: #E29A6F;
 	color: #FFFFFF;
 	font-size: 20px;
 	padding: 10px;
@@ -40,15 +58,22 @@ button {
 	border-radius:15px;
 }
 
+#add-topic:hover {
+	background-color: #D77866;
+
+}
+
 button:hover {
-	background-color: #062764;
+	background-color: #D77866;
+
 }
 
 footer {
 	position:relative;
 	width:100%;
 	font-size:20px;
-	background-color: #FFFFFF;
+	color:#FFFFFF;
+	background-color: #031136;
 	text-align: center;
 	vertical-align: middle;
 	height:60px;
