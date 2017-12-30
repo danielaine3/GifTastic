@@ -6,8 +6,6 @@ function createButtons() {
 	//Delete the content inside the buttons div before adding new buttons
 	$(".buttons").empty();
 
-	$(".gifs").empty();
-
 	//Loop through the array of topics, then generate buttons for each topic in the array
 	for (var i = 0; i < topics.length; i++){
 
