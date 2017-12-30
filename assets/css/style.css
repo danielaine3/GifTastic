@@ -42,6 +42,7 @@ p {
 }
 
 #topic-form {
+	width:33%;
 	float:right;
 }
 
@@ -52,6 +53,11 @@ p {
 	padding: 10px;
 	margin-top: 20px;
 	border-radius:15px;
+
+}
+
+#add-topic:hover {
+	background-color: #D77866;
 
 }
 
@@ -69,14 +75,14 @@ button {
 	border-radius:15px;
 }
 
-#add-topic:hover {
+button:hover {
 	background-color: #D77866;
 
 }
 
-button:hover {
-	background-color: #D77866;
-
+.buttons {
+	width: 66%;
+	max-height:200px;
 }
 
 .gifs {
