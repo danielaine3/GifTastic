@@ -14,7 +14,7 @@ function createButtons() {
 		var topicBtn = $('<button>');
 
 		//Adding a class of topic to our button
-		topicBtn.addClass("topic");
+		//topicBtn.addClass("topic");
 		topicBtn.click(displayTopicInfo);
 
 		//Adding a data-attribute
@@ -86,10 +86,10 @@ function displayTopicInfo(){
 
 			//Appending the gif
 			topicDiv.append(gif);
+			topicDiv.append(ratingDiv);
 
 			//Appending the topicDiv and ratingDiv to the gifs div
 			$(".gifs").append(topicDiv);
-			$(".gifs").append(ratingDiv);
 
 		};
 
