@@ -83,6 +83,7 @@ button:hover {
 .buttons {
 	width: 66%;
 	max-height:200px;
+	overflow: auto;
 }
 
 .gifs {
