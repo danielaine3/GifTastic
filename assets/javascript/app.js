@@ -14,7 +14,9 @@ function createButtons() {
 		var topicBtn = $('<button>');
 
 		//Adding a class of topic to our button
+
 		//topicBtn.addClass("topic");
+
 		topicBtn.click(displayTopicInfo);
 
 		//Adding a data-attribute
@@ -23,11 +25,11 @@ function createButtons() {
 		topicBtn.text(topics[i]);
 
 		$(".buttons").append(topicBtn);
-
+		
 	};
 };
 
-//This function handles events wehre the add topic button is clicked
+//This function handles events where the add topic button is clicked
 $("#add-topic").on("click", function(event){
 
 	//event.preventDefault() prevents submit button from trying to send a form.
@@ -44,6 +46,8 @@ $("#add-topic").on("click", function(event){
 	//The createButtons fuction is called, creatinging the list of topic buttons
 	createButtons();
 
+	$("#topic-input").val("");
+	
 });
 
 //Calling the createButtons function to display the inital list of topics
@@ -116,9 +120,5 @@ function displayTopicInfo(){
 	});
 
 };
-
-
-
-
 
 	
