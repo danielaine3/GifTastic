@@ -3,11 +3,9 @@ body {
 	min-height: 100%;
 }
 
-
-
 .container {
 	width:100%;
-	min-height:600px;
+	min-height:625px;
 	margin-bottom: 40px;
 }
 
@@ -41,6 +39,10 @@ p {
 	font-size:25px;
 	color: #031136;
 	margin-bottom: 10px;
+}
+
+#topic-form {
+	float:right;
 }
 
 #add-topic {
