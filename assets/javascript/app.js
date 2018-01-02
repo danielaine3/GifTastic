@@ -38,13 +38,17 @@ $("#add-topic").on("click", function(event){
 	//This grabs the text the user types in the input field
 	newTopic = $("#topic-input").val().trim();
 
-	//This adds the new topic to the topics array
-	topics.push(newTopic);
+	if (newTopic !== '') {
 
-	//The createButtons fuction is called, creatinging the list of topic buttons
-	createButtons();
+		//This adds the new topic to the topics array
+		topics.push(newTopic);
 
-	$("#topic-input").val("");
+		//The createButtons fuction is called, creatinging the list of topic buttons
+		createButtons();
+
+		$("#topic-input").val("");
+
+	};
 	
 });
 
