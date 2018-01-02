@@ -62,6 +62,7 @@ function displayTopicInfo(){
 	}).done(function(response) {
 
  		var results = response.data;
+ 		console.log(results[0].images);
 
  		$(".gifs").empty();
 
@@ -77,9 +78,9 @@ function displayTopicInfo(){
 			var ratingDiv = $("<p>").text("Rating: " + rating);
 
 			//Retrieving and storing the URLs for the gifs 
-			var gifURL = response.data[i].images.original_still.url;
+			var gifURL = response.data[i].images.fixed_height_still.url;
 			var animateURL= response.data[i].images.original.url;
-			var stillURL = response.data[i].images.original_still.url;
+			var stillURL = response.data[i].images.fixed_height_still.url;
 
 			var gif = $("<img>").attr("src", gifURL)
 			.attr("data-animate", animateURL)
