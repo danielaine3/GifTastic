@@ -47,7 +47,7 @@ p {
 }
 
 #add-topic {
-	background-color: #031136;
+	background-color: #062764;
 	color: #FFFFFF;
 	font-size: 20px;
 	padding: 10px;
@@ -80,8 +80,13 @@ button:hover {
 
 }
 
+button:focus {
+	background-color:#062764;
+}
+
 .buttons {
 	width: 66%;
+	min-height:90px;
 	max-height:200px;
 	overflow: auto;
 }
@@ -105,7 +110,7 @@ footer {
 	width:100%;
 	font-size:20px;
 	color:#FFFFFF;
-	background-color: #031136;
+	background-color: #062764;
 	text-align: center;
 	vertical-align: middle;
 	height:60px;
