@@ -101,7 +101,7 @@ button:hover {
 }
 
 .gifs {
-	width:660px;
+	width:1200px;
 
 }
 
@@ -124,7 +124,7 @@ button:hover {
 
 .gifImg[data-state='animate'] {
 	height:190px;
-	border-bottom:10px solid #D77866;
+	border-bottom:10px solid #062764;
 
 }
 

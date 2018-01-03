@@ -24,9 +24,18 @@ function createButtons() {
 		$(".buttons").append(topicBtn);
 		
 	};
+
+	function activeBtn() {
+
+	$(".topic").click(function(){
+		$('.topic').removeClass("active")
+		$(this).addClass("active");
+		
+	});
+	};
+
+	activeBtn();
 };
-
-
 
 //This function handles events where the add topic button is clicked
 $("#add-topic").click(function(event){
@@ -50,11 +59,13 @@ $("#add-topic").click(function(event){
 		$("#topic-input").val("");
 
 	};
-	
+
 });
 
 //Calling the createButtons function to display the inital list of topics
 createButtons();
+
+
 
 function displayTopicInfo(){
 
@@ -119,18 +130,14 @@ function displayTopicInfo(){
 		});
 	};
 
+
 	animateGif();
+	
 
 	});
+
+
+
 };
 
-function activeBtn() {
 
-	$(".topic").click(function(){
-		$('.topic').removeClass("active")
-		$(this).addClass("active");
-		
-	});
-};
-
-activeBtn();	
