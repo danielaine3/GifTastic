@@ -105,6 +105,16 @@ button:focus {
 	width: 200px;
 }
 
+.gifImg {
+	width:200px;
+	height:200px;
+}
+
+.gifImg[data-state='animate'] {
+	height:190px;
+	border-bottom:10px solid #D77866;
+}
+
 footer {
 	position:relative;
 	width:100%;

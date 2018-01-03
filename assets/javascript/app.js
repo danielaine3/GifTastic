@@ -86,7 +86,7 @@ function displayTopicInfo(){
 			var animateURL= response.data[i].images.original.url;
 			var stillURL = response.data[i].images.fixed_height_still.url;
 
-			var gif = $("<img>").attr("src", gifURL)
+			var gif = $("<img class='gifImg'>").attr("src", gifURL)
 			.attr("data-animate", animateURL)
 			.attr("data-still", stillURL)
 			.attr("data-state", "still");
@@ -102,7 +102,7 @@ function displayTopicInfo(){
 
 	function animateGif() {
 
-		$("img").on("click", function(){
+		$(".gifImg").on("click", function(){
 
 			var state = $(this).attr("data-state");
 
