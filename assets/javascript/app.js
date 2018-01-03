@@ -1,6 +1,15 @@
 //Initial array of topics
 var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 
+function activeBtn() {
+
+$(".topic").click(function(){
+	$('.topic').removeClass("active")
+	$(this).addClass("active");
+	
+});
+};
+
 function createButtons() {
 
 	//Delete the content inside the buttons div before adding new buttons
@@ -25,14 +34,7 @@ function createButtons() {
 		
 	};
 
-	function activeBtn() {
 
-	$(".topic").click(function(){
-		$('.topic').removeClass("active")
-		$(this).addClass("active");
-		
-	});
-	};
 
 	activeBtn();
 };
@@ -41,22 +43,40 @@ function createButtons() {
 $("#add-topic").click(function(event){
 
 	//event.preventDefault() prevents submit button from trying to send a form.
-	//Using a submitbutton instead of a regular button allows the user to hit
+	//Using a submit button instead of a regular button allows the user to hit
 	//"Enter" instead of clicking the button if desireds
 	event.preventDefault();
 
 	//This grabs the text the user types in the input field
 	newTopic = $("#topic-input").val().trim();
+	// newTopic = $('<button>');
 
 	if (newTopic !== '') {
 
-		//This adds the new topic to the topics array
-		topics.push(newTopic);
+		var newBtn = $('<button>');
 
-		//The createButtons fuction is called, creatinging the list of topic buttons
-		createButtons();
+		//Adding a class of topic to our button
+		newBtn.addClass("topic");
+
+		newBtn.click(displayTopicInfo);
+
+		//Adding a data-attribute
+		newBtn.attr("data-name", newTopic)
+
+		newBtn.text(newTopic);	
+
+		// //This adds the new topic to the topics array
+		// topics.push(newTopic);
+
+		// //The createButtons fuction is called, recreating the list of topic buttons 
+		// // with the new topic
+		// createButtons();
+
+		$(".buttons").append(newBtn);
 
 		$("#topic-input").val("");
+
+		activeBtn();
 
 	};
 
@@ -64,8 +84,6 @@ $("#add-topic").click(function(event){
 
 //Calling the createButtons function to display the inital list of topics
 createButtons();
-
-
 
 function displayTopicInfo(){
 
