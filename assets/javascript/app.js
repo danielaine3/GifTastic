@@ -3,11 +3,10 @@ var topics = ["Jimmy Fallon", "Tina Fey", "Justin Timberlake"];
 
 function activeBtn() {
 
-$(".topic").click(function(){
-	$('.topic').removeClass("active")
-	$(this).addClass("active");
-	
-});
+	$(".topic").click(function(){
+		$('.topic').removeClass("active")
+		$(this).addClass("active");	
+	});
 };
 
 function createButtons() {
@@ -30,11 +29,8 @@ function createButtons() {
 
 		topicBtn.text(topics[i]);
 
-		$(".buttons").append(topicBtn);
-		
+		$(".buttons").append(topicBtn);	
 	};
-
-
 
 	activeBtn();
 };
@@ -65,21 +61,12 @@ $("#add-topic").click(function(event){
 
 		newBtn.text(newTopic);	
 
-		// //This adds the new topic to the topics array
-		// topics.push(newTopic);
-
-		// //The createButtons fuction is called, recreating the list of topic buttons 
-		// // with the new topic
-		// createButtons();
-
 		$(".buttons").append(newBtn);
 
 		$("#topic-input").val("");
 
 		activeBtn();
-
 	};
-
 });
 
 //Calling the createButtons function to display the inital list of topics
@@ -96,7 +83,6 @@ function displayTopicInfo(){
 	}).done(function(response) {
 
  		var results = response.data;
- 		// console.log(results[0].images);
 
  		$(".gifs").empty();
 
@@ -148,14 +134,9 @@ function displayTopicInfo(){
 		});
 	};
 
-
 	animateGif();
-	
 
 	});
-
-
-
 };
 
 
