@@ -1,12 +1,14 @@
 body {
 	font-family: 'Barlow Condensed', sans-serif;
 	min-height: 100%;
+
 }
 
 .container {
 	width:100%;
 	min-height:625px;
 	margin-bottom: 40px;
+
 }
 
 h1 {
@@ -30,15 +32,17 @@ h1 {
 
 label {
 	font-size:25px;
-	color: #031136;
+	color: #062764;
 	margin-bottom: 10px;
 
 }
 
 p {
 	font-size:25px;
-	color: #031136;
+	color: #062764;
 	margin-bottom: 10px;
+	text-align:center;
+
 }
 
 #topic-form {
@@ -73,6 +77,7 @@ button {
 		-1px 1px 0 #062764,
 		1px 1px 0 #062764;
 	border-radius:15px;
+
 }
 
 button:hover {
@@ -80,39 +85,47 @@ button:hover {
 
 }
 
-button:focus {
+
+
+.active {
 	background-color:#062764;
+
 }
 
 .buttons {
 	width: 66%;
 	min-height:90px;
-	max-height:200px;
+	max-height:180px;
 	overflow: auto;
+
 }
 
 .gifs {
-	width:660px;	
+	width:660px;
 
 }
 
 .topic {
 	display: inline-block;
-	margin: 10px;
+	margin: 5px;
+
 }
 
 .topic img {
 	width: 200px;
+
 }
 
 .gifImg {
 	width:200px;
 	height:200px;
+
 }
 
 .gifImg[data-state='animate'] {
 	height:190px;
 	border-bottom:10px solid #D77866;
+
 }
 
 footer {

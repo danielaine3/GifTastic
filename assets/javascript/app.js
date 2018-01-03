@@ -12,13 +12,12 @@ function createButtons() {
 		var topicBtn = $('<button>');
 
 		//Adding a class of topic to our button
-
-		//topicBtn.addClass("topic");
+		topicBtn.addClass("topic");
 
 		topicBtn.click(displayTopicInfo);
 
 		//Adding a data-attribute
-		topicBtn.attr("data-name", topics[i]);
+		topicBtn.attr("data-name", topics[i])
 
 		topicBtn.text(topics[i]);
 
@@ -27,8 +26,10 @@ function createButtons() {
 	};
 };
 
+
+
 //This function handles events where the add topic button is clicked
-$("#add-topic").on("click", function(event){
+$("#add-topic").click(function(event){
 
 	//event.preventDefault() prevents submit button from trying to send a form.
 	//Using a submitbutton instead of a regular button allows the user to hit
@@ -66,7 +67,7 @@ function displayTopicInfo(){
 	}).done(function(response) {
 
  		var results = response.data;
- 		console.log(results[0].images);
+ 		// console.log(results[0].images);
 
  		$(".gifs").empty();
 
@@ -102,7 +103,7 @@ function displayTopicInfo(){
 
 	function animateGif() {
 
-		$(".gifImg").on("click", function(){
+		$(".gifImg").click(function(){
 
 			var state = $(this).attr("data-state");
 
@@ -121,7 +122,15 @@ function displayTopicInfo(){
 	animateGif();
 
 	});
-
 };
 
-	
+function activeBtn() {
+
+	$(".topic").click(function(){
+		$('.topic').removeClass("active")
+		$(this).addClass("active");
+		
+	});
+};
+
+activeBtn();	
