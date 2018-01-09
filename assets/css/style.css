@@ -1,14 +1,12 @@
 body {
 	font-family: 'Barlow Condensed', sans-serif;
 	min-height: 100%;
-
 }
 
 .container {
 	width:100%;
 	min-height:625px;
 	margin-bottom: 40px;
-
 }
 
 h1 {
@@ -27,14 +25,12 @@ h1 {
 		1px -1px 0 #062764,
 		-1px 1px 0 #062764,
 		1px 1px 0 #062764
-
 }
 
 label {
 	font-size:25px;
 	color: #062764;
 	margin-bottom: 10px;
-
 }
 
 p {
@@ -42,7 +38,6 @@ p {
 	color: #062764;
 	margin-bottom: 10px;
 	text-align:center;
-
 }
 
 #topic-form {
@@ -57,12 +52,10 @@ p {
 	padding: 10px;
 	margin-top: 20px;
 	border-radius:15px;
-
 }
 
 #add-topic:hover {
 	background-color: #D77866;
-
 }
 
 button {
@@ -78,17 +71,14 @@ button {
 		1px 1px 0 #062764;
 	border-radius:15px;
 	border: 1px solid #062764;
-
 }
 
 button:hover {
 	background-color: #D77866;
-
 }
 
 .active {
 	background-color:#062764;
-
 }
 
 .buttons {
@@ -96,35 +86,29 @@ button:hover {
 	min-height:90px;
 	max-height:180px;
 	overflow: auto;
-
 }
 
 .gifs {
 	width:1200px;
-
 }
 
 .topic {
 	display: inline-block;
 	margin: 5px;
-
 }
 
 .topic img {
 	width: 200px;
-
 }
 
 .gifImg {
 	width:200px;
 	height:200px;
-
 }
 
 .gifImg[data-state='animate'] {
 	height:180px;
 	border-bottom:20px solid #062764;
-
 }
 
 footer {
@@ -136,5 +120,4 @@ footer {
 	text-align: center;
 	height:60px;
 	margin-top: 30px;
-
 }
