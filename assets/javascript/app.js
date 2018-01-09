@@ -80,9 +80,6 @@ function displayTopicInfo(){
 
  		for (var i = 0; i < results.length; i++) {
 
- 			var results = response.data;
-
- 			$(".gifs").empty();
 			//creating a div to hold the topic
 			var topicDiv = $("<div class='topic'>");
 
