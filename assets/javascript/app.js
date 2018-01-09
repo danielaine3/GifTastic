@@ -22,7 +22,7 @@ function createButtons() {
 		topicBtn.click(displayTopicInfo);
 
 		//Adding a data-attribute
-		topicBtn.attr("data-name", topics[i])
+		topicBtn.attr("data-name", topics[i]);
 
 		topicBtn.text(topics[i]);
 
@@ -41,9 +41,9 @@ $("#add-topic").click(function(event){
 
 	//This grabs the text the user types in the input field
 	newTopic = $("#topic-input").val().trim();
-	// newTopic = $('<button>');
 
 	if (newTopic !== '') {
+
 		var newBtn = $('<button>');
 
 		//Adding a class of topic to our button
@@ -111,7 +111,6 @@ function displayTopicInfo(){
 	function animateGif() {
 
 		$(".gifImg").click(function(){
-
 			var state = $(this).attr("data-state");
 			if (state === "still"){
 				$(this).attr("src", $(this).attr("data-animate"));
