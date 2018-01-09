@@ -69,7 +69,7 @@ createButtons();
 
 function displayTopicInfo(){
 	var topic = $(this).attr("data-name");	
-	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
+	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0";
 
 	$.ajax({
 		url:queryURL,
