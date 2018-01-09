@@ -71,8 +71,6 @@ function displayTopicInfo(){
 	var topic = $(this).attr("data-name");	
 	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
 
-	var topic = $(this).attr("data-name");	
-	var queryURL= "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=bfDdf2nFss4QgroeR65LlzOJuHXPD2c0&limit=10";
 	$.ajax({
 		url:queryURL,
 		method: 'GET'
