@@ -108,21 +108,21 @@ function displayTopicInfo(){
 			$(".gifs").append(topicDiv);
 		};
 
-	function animateGif() {
+		function animateGif() {
 
-		$(".gifImg").click(function(){
-			var state = $(this).attr("data-state");
-			if (state === "still"){
-				$(this).attr("src", $(this).attr("data-animate"));
-				$(this).attr("data-state", "animate");
-			} else {
-				$(this).attr("src", $(this).attr("data-still"));
-				$(this).attr("data-state", "still");
-			};
-		});
-	};
+			$(".gifImg").click(function(){
+				var state = $(this).attr("data-state");
+				if (state === "still"){
+					$(this).attr("src", $(this).attr("data-animate"));
+					$(this).attr("data-state", "animate");
+				} else {
+					$(this).attr("src", $(this).attr("data-still"));
+					$(this).attr("data-state", "still");
+				};
+			});
+		};
 
-	animateGif();
+		animateGif();
 	});
 };
 
